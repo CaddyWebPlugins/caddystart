@@ -32,22 +32,22 @@ var startCmd = &cobra.Command{
 		case "true", "True", "TRUE", "test", "Test", "TEST":
 			if os.Getenv("DEBUG") == "true"{
 				cmd := exec.Command("caddy", "-agree=true" , os.Getenv("EMAIL"), "-conf=/opt/caddy/Caddyfile",
-					"-ca=https://acme-staging-v02.api.letsencrypt.org/directory")
+					"-ca=https://acme-staging-v02.api.letsencrypt.org/directory", "-disabled-metrics")
 				fmt.Println(cmd)
 				fmt.Println("test is true")
 			} else {
 				cmd := exec.Command("caddy", "-agree=true" , os.Getenv("EMAIL"), "-conf=/opt/caddy/Caddyfile",
-					"-ca=https://acme-staging-v02.api.letsencrypt.org/directory ")
+					"-ca=https://acme-staging-v02.api.letsencrypt.org/directory", "-disabled-metrics")
 				cmd.Run()
 			}
 
 		default:
 			if os.Getenv("DEBUG") == "true"{
-				cmd := exec.Command("caddy", "-agree=true" , os.Getenv("EMAIL"), "-conf=/opt/caddy/Caddyfile")
+				cmd := exec.Command("caddy", "-agree=true" , os.Getenv("EMAIL"), "-conf=/opt/caddy/Caddyfile", "-disabled-metrics")
 				fmt.Println(cmd)
 				fmt.Println("test is false")
 			} else {
-				cmd := exec.Command("caddy", "-agree=true" , os.Getenv("EMAIL"), "-conf=/opt/caddy/Caddyfile")
+				cmd := exec.Command("caddy", "-agree=true" , os.Getenv("EMAIL"), "-conf=/opt/caddy/Caddyfile", "-disabled-metrics")
 				cmd.Run()
 			}
 		}
