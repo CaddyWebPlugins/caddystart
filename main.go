@@ -14,7 +14,7 @@
 
 package main
 
-import "sc.tpnfc.us/oyoshi/caddystart/cmd"
+import "github.com/CaddyWebPlugins/caddystart/cmd"
 
 func main() {
 	cmd.Execute()
